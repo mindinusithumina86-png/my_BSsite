@@ -1,23 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Navigation Logic
     const navItems = document.querySelectorAll('.nav-item');
     const tabContents = document.querySelectorAll('.tab-content');
 
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            // Remove active class from all nav items
             navItems.forEach(nav => nav.classList.remove('active'));
-            // Add active class to clicked item
             item.classList.add('active');
 
-            // Get target tab id
             const targetId = item.getAttribute('data-target');
+            tabContents.forEach(content => content.classList.remove('active'));
 
-            // Hide all tabs
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Show target tab
             const targetTab = document.getElementById(targetId);
             if (targetTab) {
                 targetTab.classList.add('active');
@@ -25,6 +18,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Modal / Lightbox Logic
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('full-image');
+    const captionText = document.getElementById('modal-caption');
+    const closeModal = document.querySelector('.close-modal');
+
+    const galleryImages = document.querySelectorAll('.gallery-grid img');
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            const overlay = img.closest('.gallery-item').querySelector('.overlay');
+            captionText.innerHTML = overlay ? overlay.textContent : img.alt;
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+    }
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+
+    // Initial Status Check
+    updateBusinessStatus();
+    // Update every minute
+    setInterval(updateBusinessStatus, 60000);
 });
 
 // Carousel Slide Function
@@ -35,4 +64,76 @@ function slideCarousel(btn, direction) {
         left: direction * scrollAmount,
         behavior: 'smooth'
     });
+}
+
+// Business Status Logic
+function updateBusinessStatus() {
+    const statusBadge = document.getElementById('business-status');
+    const headerStatus = document.getElementById('header-status');
+    const hoursText = document.getElementById('current-day-hours');
+    
+    if (!statusBadge || !hoursText) return;
+
+    const now = new Date();
+    const day = now.getDay(); // 0 (Sun) to 6 (Sat)
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTime = hour + minutes / 60;
+
+    const schedule = {
+        1: { open: 8, close: 24, name: "Monday" },
+        2: { open: 8, close: 24, name: "Tuesday" },
+        3: { open: 8, close: 24, name: "Wednesday" },
+        4: { open: 8, close: 24, name: "Thursday" },
+        5: { open: 8, close: 24, name: "Friday" },
+        6: { open: 12, close: 20, name: "Saturday" },
+        0: { open: 8, close: 12, name: "Sunday" }
+    };
+
+    const today = schedule[day];
+    let isOpen = false;
+
+    if (currentTime >= today.open && currentTime < today.close) {
+        isOpen = true;
+    }
+
+    if (isOpen) {
+        statusBadge.textContent = "Open Now";
+        statusBadge.className = "status-badge open";
+        if (headerStatus) {
+            headerStatus.textContent = "● Open";
+            headerStatus.className = "header-status open";
+        }
+    } else {
+        statusBadge.textContent = "Closed Now";
+        statusBadge.className = "status-badge closed";
+        if (headerStatus) {
+            headerStatus.textContent = "● Closed";
+            headerStatus.className = "header-status closed";
+        }
+    }
+
+    const formatTime = (h) => {
+        if (h === 24 || h === 0) return '12:00 AM';
+        const period = h >= 12 ? 'PM' : 'AM';
+        const displayH = h % 12 || 12;
+        return `${displayH}:00 ${period}`;
+    };
+
+    hoursText.textContent = `Today (${today.name}): ${formatTime(today.open)} - ${formatTime(today.close)}`;
+}
+
+function toggleFullSchedule() {
+    const schedule = document.getElementById('full-schedule');
+    const btn = document.querySelector('.view-all-times i');
+    if (!schedule) return;
+    
+    schedule.classList.toggle('active');
+    if (btn) {
+        if (schedule.classList.contains('active')) {
+            btn.style.transform = 'rotate(180deg)';
+        } else {
+            btn.style.transform = 'rotate(0deg)';
+        }
+    }
 }
