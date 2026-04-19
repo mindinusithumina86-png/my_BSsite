@@ -26,3 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Carousel Slide Function
+function slideCarousel(btn, direction) {
+    const container = btn.parentElement.querySelector('.carousel-container');
+    const scrollAmount = container.clientWidth;
+    container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+}
