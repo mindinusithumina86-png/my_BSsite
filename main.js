@@ -52,9 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial Status Check
     updateBusinessStatus();
+    updateOffersDate();
     // Update every minute
     setInterval(updateBusinessStatus, 60000);
 });
+
+// Update Offers Date
+function updateOffersDate() {
+    const dateElement = document.getElementById('offers-date');
+    if (dateElement) {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        dateElement.textContent = now.toLocaleDateString('en-US', options);
+    }
+}
 
 // Carousel Slide Function
 function slideCarousel(btn, direction) {
