@@ -3,18 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
     
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    if (themeIcon) updateThemeIcon(savedTheme);
+    // Sync UI with current theme
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    if (themeIcon) updateThemeIcon(currentTheme);
 
     if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        themeToggle.onclick = function(e) {
+            const oldTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = oldTheme === 'light' ? 'dark' : 'light';
+            
             document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            try {
+                localStorage.setItem('theme', newTheme);
+            } catch (err) {}
+            
             updateThemeIcon(newTheme);
-        });
+        };
     }
 
     function updateThemeIcon(theme) {

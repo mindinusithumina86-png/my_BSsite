@@ -264,7 +264,12 @@ main {
     gap: 15px;
     margin-top: 25px;
     margin-bottom: 10px;
-    animation: fadeIn 1s ease-out 0.5s backwards;
+    animation: fadeInFast 0.8s ease-out forwards;
+}
+
+@keyframes fadeInFast {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-stat-item {
@@ -453,6 +458,10 @@ main {
         flex: 0 0 auto;
         width: 100%;
         max-width: 400px;
+    }
+
+    .hero-stats {
+        justify-content: center;
     }
 }
 
