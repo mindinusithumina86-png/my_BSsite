@@ -13,6 +13,50 @@
     --body-bg: #f0f4f8;
 }
 
+[data-theme="dark"] {
+    --white: #0f172a;
+    --light-blue: #1e293b;
+    --dark-blue: #38bdf8;
+    --primary-blue: #38bdf8;
+    --neon-blue: #0ea5e9;
+    --text-color: #cbd5e1; /* Brighter for better readability */
+    --heading-color: #f8fafc;
+    --card-bg: rgba(30, 41, 59, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.15); /* More visible */
+    --body-bg: #020617;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: rgba(224, 234, 253, 0.7);
+    border: 1px solid var(--glass-border);
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: auto;
+    transition: all 0.3s ease;
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: rgba(30, 41, 59, 0.7);
+    color: #fbbf24;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 0 15px var(--neon-glow);
+}
+
+.theme-toggle:active {
+    transform: scale(0.9);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -53,6 +97,11 @@ body {
     height: 100%;
     background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.7) 0%, var(--body-bg) 100%);
     opacity: 0.85;
+}
+
+[data-theme="dark"] .background-overlay {
+    background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8) 0%, var(--body-bg) 100%);
+    opacity: 0.9;
 }
 
 /* Header */
@@ -209,14 +258,53 @@ main {
     color: var(--text-color);
 }
 
-/* Profile Card Styling */
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+.hero-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card-bg);
+    backdrop-filter: blur(5px);
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.hero-stat-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-blue);
+    background: white;
+    box-shadow: 0 8px 25px var(--neon-glow);
+}
+
+.hero-stat-item i {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+}
+
+.hero-stat-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
 .profile-card-container {
     flex: 0 0 350px;
     perspective: 1000px;
 }
 
 .profile-card {
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
     border-radius: 24px;
     padding: 25px;
@@ -378,7 +466,7 @@ main {
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--card-bg);
     backdrop-filter: blur(8px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
@@ -486,7 +574,7 @@ h3::after {
 }
 
 .price-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(8px);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
@@ -577,7 +665,7 @@ h3::after {
 }
 
 .contact-card {
-    background: rgba(224, 234, 253, 0.7);
+    background: var(--card-bg);
     backdrop-filter: blur(8px);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
@@ -1116,7 +1204,7 @@ h3::after {
 }
 
 .offer-item {
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
