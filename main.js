@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Status Check
     updateBusinessStatus();
     updateOffersDate();
+    initAutoSlide();
     // Update every minute
     setInterval(updateBusinessStatus, 60000);
 });
@@ -94,14 +95,54 @@ function updateOffersDate() {
     }
 }
 
+// Auto Slide Logic
+function initAutoSlide() {
+    const carousels = document.querySelectorAll('.carousel-container');
+    
+    carousels.forEach(container => {
+        let isHovered = false;
+        
+        container.addEventListener('mouseenter', () => isHovered = true);
+        container.addEventListener('mouseleave', () => isHovered = false);
+        
+        setInterval(() => {
+            if (isHovered) return;
+
+            // Only slide if the tab is visible to save resources
+            const section = container.closest('.tab-content');
+            if (section && section.classList.contains('active')) {
+                const scrollAmount = container.clientWidth;
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                
+                // If we're at or near the end, loop back to the beginning
+                if (container.scrollLeft >= maxScroll - 10) {
+                    container.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+        }, 2500); // 2.5 seconds as requested by the user
+    });
+}
+
 // Carousel Slide Function
 function slideCarousel(btn, direction) {
     const container = btn.parentElement.querySelector('.carousel-container');
     const scrollAmount = container.clientWidth;
-    container.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-    });
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    if (direction === 1 && container.scrollLeft >= maxScroll - 10) {
+        // Loop back to start if clicking next at the end
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+    } else if (direction === -1 && container.scrollLeft <= 10) {
+        // Loop to end if clicking prev at the start
+        container.scrollTo({ left: maxScroll, behavior: 'smooth' });
+    } else {
+        container.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
+    }
 }
 
 // Business Status Logic
