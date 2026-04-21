@@ -121,7 +121,7 @@ function initAutoSlide() {
                     container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 }
             }
-        }, 2500); // 2.5 seconds as requested by the user
+        }, 3500); // 3.5 seconds as requested by the user
     });
 }
 
