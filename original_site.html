@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS GRAPHIC | Graphic Design Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Initial theme check to prevent flash
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } catch (e) {
+                console.error('LocalStorage error:', e);
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="video-background-container">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-flowing-blue-and-white-smoke-2432-large.mp4" type="video/mp4">
+        </video>
+        <div class="background-overlay"></div>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="assets/WhatsApp Image 2026-04-08 at 5.33.37 PM.jpeg" alt="MS Graphic Logo" class="logo">
+            <div class="brand-info">
+                <h1>MS GRAPHIC</h1>
+                <div id="header-status" class="header-status"></div>
+            </div>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" type="button" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </header>
+
+    <main id="main-content">
+        <!-- Home Tab Content -->
+        <section id="home-tab" class="tab-content active">
+            <div class="hero-section">
+                <div class="hero-top-layout">
+                    <div class="hero-text">
+                        <h2>Turning Ideas Into <span class="highlight">Visually Stunning Designs</span></h2>
+                        <p class="description">Hi! I’m a creative and dedicated graphic designer with a passion for turning
+                            ideas into visually stunning designs. I specialize in logo design, branding, social media posts,
+                            flyers, and digital artwork that help businesses stand out and attract more customers.</p>
+                        <p class="description">I focus on creating modern, eye-catching, and unique designs that match your
+                            brand identity and leave a lasting impression. Whether you’re starting a new business or growing an
+                            existing one, I’m here to provide high-quality designs tailored to your needs.</p>
+                        
+                        <div class="hero-stats">
+                            <div class="hero-stat-item">
+                                <i class="fa-solid fa-star"></i>
+                                <span>10+ Projects Completed</span>
+                            </div>
+                            <div class="hero-stat-item">
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                                <span>Fast Delivery</span>
+                            </div>
+                            <div class="hero-stat-item">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span>100% Client Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-card-container">
+                        <div class="profile-card">
+                            <div class="profile-image-wrapper">
+                                <img src="assets/WhatsApp Image 2026-04-14 at 10.28.36 AM.jpeg" alt="MINUDA MINDINU">
+                            </div>
+                            <div class="profile-info">
+                                <span class="profile-label">Creative Lead</span>
+                                <h3 class="profile-name">MINUDA MINDINU</h3>
+                                <p class="profile-desc">Possess a solid foundation in graphic design with the ability to create visually appealing and professional designs including logos, social media content, and promotional materials. Skilled in using industry-standard tools such as Adobe Photoshop and Illustrator to deliver creative and high-quality results</p>
+                                <div class="profile-socials">
+                                    <a href="https://www.facebook.com/share/1DtXdp8JfX/" class="social-icon" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.instagram.com/minuda_0319?igsh=eWc0Y2NoZDVicTFy" class="social-icon" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="https://www.tiktok.com/@minuda_m_sithumina" class="social-icon" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                                    <a href="https://wa.me/94787015126" class="social-icon" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card" style="--delay: 0.1s">
+                        <div class="feature-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                        <h3>Fast Delivery</h3>
+                        <p>Get your designs delivered quickly without compromising on excellence. Your time is valuable to us.</p>
+                    </div>
+                    <div class="feature-card" style="--delay: 0.2s">
+                        <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>High Quality Design</h3>
+                        <p>Professional and stunning designs tailored to your brand identity, ensuring you stand out in the crowd.</p>
+                    </div>
+                    <div class="feature-card" style="--delay: 0.3s">
+                        <div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
+                        <h3>Friendly Communication</h3>
+                        <p>We believe in clear and friendly collaboration to bring your vision to life exactly as you imagined.</p>
+                    </div>
+                    <div class="feature-card" style="--delay: 0.4s">
+                        <div class="feature-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                        <h3>Affordable Prices</h3>
+                        <p>Premium graphic design services at prices that fit your budget, making quality design accessible to all.</p>
+                    </div>
+                </div>
+
+                <p class="tagline">Let’s work together and bring your ideas to life!</p>
+            </div>
+
+            <div class="price-section">
+                <h3>Our Services & Pricing</h3>
+                <div class="price-grid">
+                    <div class="price-card">
+                        <i class="fa-solid fa-hashtag"></i>
+                        <h4>Social Media Post</h4>
+                        <span class="price">Rs 800</span>
+                        <a href="https://wa.me/94787015126?text=Hi, I would like to order a Social Media Post design." class="buy-btn" target="_blank">Hire Me</a>
+                    </div>
+                    <div class="price-card">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <h4>Book Mark</h4>
+                        <span class="price">Rs 700</span>
+                        <a href="https://wa.me/94787015126?text=Hi, I would like to order a Bookmark design." class="buy-btn" target="_blank">Hire Me</a>
+                    </div>
+                    <div class="price-card">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <h4>Leaflet Design</h4>
+                        <span class="price">Rs 800</span>
+                        <a href="https://wa.me/94787015126?text=Hi, I would like to order a Leaflet design." class="buy-btn" target="_blank">Hire Me</a>
+                    </div>
+                    <div class="price-card">
+                        <i class="fa-solid fa-book"></i>
+                        <h4>Tute Cover</h4>
+                        <span class="price">Rs 1200</span>
+                        <a href="https://wa.me/94787015126?text=Hi, I would like to order a Tute Cover design." class="buy-btn" target="_blank">Hire Me</a>
+                    </div>
+                    <div class="price-card">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <h4>File Cover</h4>
+                        <span class="price">Rs 1200</span>
+                        <a href="https://wa.me/94787015126?text=Hi, I would like to order a File Cover design." class="buy-btn" target="_blank">Hire Me</a>
+                    </div>
+                    <div class="price-card">
+                        <i class="fa-solid fa-rectangle-ad"></i>
+                        <h4>Banner</h4>
+                        <span class="price">Rs 1500</span>
+                        <a href="https://wa.me/94787015126?text=Hi, I would like to order a Banner design." class="buy-btn" target="_blank">Hire Me</a>
+                    </div>
+                    <div class="price-card">
+                        <i class="fa-solid fa-shapes"></i>
+                        <h4>Pattern Design</h4>
+                        <span class="price">Rs 2500</span>
+                        <a href="https://wa.me/94787015126?text=Hi, I would like to order a Pattern design." class="buy-btn" target="_blank">Hire Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h3>Contact & Info</h3>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <h4>Call Us</h4>
+                        <p>+94 78 701 5126</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h4>Email Us</h4>
+                        <p>maddageminuda740@gmail.com</p>
+                    </div>
+                    <div class="contact-card status-card">
+                        <i class="fa-solid fa-clock"></i>
+                        <h4>Business Status</h4>
+                        <div id="business-status" class="status-badge">Checking...</div>
+                        <p id="current-day-hours" class="status-hours"></p>
+                        <button class="view-all-times" onclick="toggleFullSchedule()">View Full Schedule <i
+                                class="fa-solid fa-chevron-down"></i></button>
+                        <div id="full-schedule" class="full-schedule">
+                            <div class="schedule-item"><span>Monday:</span> <span>8:00 AM - 12:00 AM</span></div>
+                            <div class="schedule-item"><span>Tuesday:</span> <span>8:00 AM - 12:00 AM</span></div>
+                            <div class="schedule-item"><span>Wednesday:</span> <span>8:00 AM - 12:00 AM</span></div>
+                            <div class="schedule-item"><span>Thursday:</span> <span>8:00 AM - 12:00 AM</span></div>
+                            <div class="schedule-item"><span>Friday:</span> <span>8:00 AM - 12:00 AM</span></div>
+                            <div class="schedule-item"><span>Saturday:</span> <span>12:00 PM - 8:00 PM</span></div>
+                            <div class="schedule-item"><span>Sunday:</span> <span>8:00 AM - 12:00 PM</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples Tab Content -->
+        <section id="examples-tab" class="tab-content">
+            <div class="examples-header">
+                <h2>Our Portfolio</h2>
+                <p>A glimpse into some of our recent high-quality designs.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item carousel-item">
+                    <button class="carousel-btn prev-btn" onclick="slideCarousel(this, -1)">&#10094;</button>
+                    <div class="carousel-container">
+                        <img src="assets/Gemini_Generated_Image_f5jyd3f5jyd3f5jy.png" alt="Social Media Post 1">
+                        <img src="assets/sQi2h(1).jpg.jpeg" alt="Social Media Post 2">
+                        <img src="assets/Gemini_Generated_Image_xt0t1txt0t1txt0t.png" alt="Social Media Post 3">
+                        <img src="assets/Gemini_Generated_Image_22nd9z22nd9z22nd.png" alt="Social Media Post 4">
+                    </div>
+                    <button class="carousel-btn next-btn" onclick="slideCarousel(this, 1)">&#10095;</button>
+                    <div class="overlay">
+                        <span>Social Media Posts</span>
+                        <div class="visit-tag">TOUCH TO VISIT IMAGE</div>
+                    </div>
+                </div>
+                <div class="gallery-item carousel-item">
+                    <button class="carousel-btn prev-btn" onclick="slideCarousel(this, -1)">&#10094;</button>
+                    <div class="carousel-container">
+                        <img src="assets/Gemini_Generated_Image_irer6jirer6jirer.png" alt="Banner Design 1">
+                        <img src="assets/Gemini_Generated_Image_k5rx98k5rx98k5rx.png" alt="Banner Design 2">
+                    </div>
+                    <button class="carousel-btn next-btn" onclick="slideCarousel(this, 1)">&#10095;</button>
+                    <div class="overlay">
+                        <span>Banner Designs</span>
+                        <div class="visit-tag">TOUCH TO VISIT IMAGE</div>
+                    </div>
+                </div>
+                <div class="gallery-item carousel-item">
+                    <button class="carousel-btn prev-btn" onclick="slideCarousel(this, -1)">&#10094;</button>
+                    <div class="carousel-container">
+                        <img src="assets/generated-image.png" alt="Leaflet Design 1">
+                        <img src="assets/Gemini_Generated_Image_8ypi0v8ypi0v8ypi.png" alt="Leaflet Design 2">
+                    </div>
+                    <button class="carousel-btn next-btn" onclick="slideCarousel(this, 1)">&#10095;</button>
+                    <div class="overlay">
+                        <span>Leaflet Designs</span>
+                        <div class="visit-tag">TOUCH TO VISIT IMAGE</div>
+                    </div>
+                </div>
+                <div class="gallery-item carousel-item">
+                    <button class="carousel-btn prev-btn" onclick="slideCarousel(this, -1)">&#10094;</button>
+                    <div class="carousel-container">
+                        <img src="assets/Gemini_Generated_Image_gvmkj8gvmkj8gvmk.png" alt="Pattern Design 1">
+                        <img src="assets/Gemini_Generated_Image_avrhtvavrhtvavrh.png" alt="Pattern Design 2">
+                        <img src="assets/Gemini_Generated_Image_68osec68osec68os.png" alt="Pattern Design 3">
+                    </div>
+                    <button class="carousel-btn next-btn" onclick="slideCarousel(this, 1)">&#10095;</button>
+                    <div class="overlay">
+                        <span>Pattern Designs</span>
+                        <div class="visit-tag">TOUCH TO VISIT IMAGE</div>
+                    </div>
+                </div>
+                <div class="gallery-item carousel-item">
+                    <button class="carousel-btn prev-btn" onclick="slideCarousel(this, -1)">&#10094;</button>
+                    <div class="carousel-container">
+                        <img src="assets/tute_cover.jpg" alt="Tute Cover 1">
+                        <img src="assets/y4Hwu.jpg" alt="Tute Cover 2">
+                    </div>
+                    <button class="carousel-btn next-btn" onclick="slideCarousel(this, 1)">&#10095;</button>
+                    <div class="overlay">
+                        <span>Tute Covers</span>
+                        <div class="visit-tag">TOUCH TO VISIT IMAGE</div>
+                    </div>
+                </div>
+                <div class="gallery-item carousel-item">
+                    <button class="carousel-btn prev-btn" onclick="slideCarousel(this, -1)">&#10094;</button>
+                    <div class="carousel-container">
+                        <img src="assets/Gemini_Generated_Image_g8s8lwg8s8lwg8s8.png" alt="Book Mark 1">
+                        <img src="assets/Gemini_Generated_Image_we7gypwe7gypwe7g.png" alt="Book Mark 2">
+                        <img src="assets/Gemini_Generated_Image_29nnr929nnr929nn.png" alt="Book Mark 3">
+                    </div>
+                    <button class="carousel-btn next-btn" onclick="slideCarousel(this, 1)">&#10095;</button>
+                    <div class="overlay">
+                        <span>BOOK MARK</span>
+                        <div class="visit-tag">TOUCH TO VISIT IMAGE</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="whatsapp-cta">
+                <p>Whatsapp Massage For More Exsample Images.</p>
+                <a href="https://wa.me/94787015126" class="whatsapp-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Send WhatsApp Message
+                </a>
+            </div>
+        </section>
+
+        <!-- Offers Tab Content -->
+        <section id="offers-tab" class="tab-content">
+            <div class="offers-header">
+                <div id="offers-date" class="current-date"></div>
+                <p class="no-offers-msg">There are no offers available for anything today.</p>
+                <h2>Limited Time Offers</h2>
+            </div>
+
+            <div class="offers-list">
+                <div class="offer-item">
+                    <div class="offer-info">
+                        <h4>Social Media Post</h4>
+                        <div class="price-container">
+                            <span class="price-red">Rs 800</span>
+                            <span class="price-light-red">Special Price</span>
+                        </div>
+                    </div>
+                    <div class="offer-status-label">OFFER NOT YET FOR TODAY</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-info">
+                        <h4>Book Mark</h4>
+                        <div class="price-container">
+                            <span class="price-red">Rs 700</span>
+                            <span class="price-light-red">Special Price</span>
+                        </div>
+                    </div>
+                    <div class="offer-status-label">OFFER NOT YET FOR TODAY</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-info">
+                        <h4>Leaflet Design</h4>
+                        <div class="price-container">
+                            <span class="price-red">Rs 800</span>
+                            <span class="price-light-red">Special Price</span>
+                        </div>
+                    </div>
+                    <div class="offer-status-label">OFFER NOT YET FOR TODAY</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-info">
+                        <h4>Tute Cover</h4>
+                        <div class="price-container">
+                            <span class="price-red">Rs 1200</span>
+                            <span class="price-light-red">Special Price</span>
+                        </div>
+                    </div>
+                    <div class="offer-status-label">OFFER NOT YET FOR TODAY</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-info">
+                        <h4>File Cover</h4>
+                        <div class="price-container">
+                            <span class="price-red">Rs 1200</span>
+                            <span class="price-light-red">Special Price</span>
+                        </div>
+                    </div>
+                    <div class="offer-status-label">OFFER NOT YET FOR TODAY</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-info">
+                        <h4>Banner</h4>
+                        <div class="price-container">
+                            <span class="price-red">Rs 1500</span>
+                            <span class="price-light-red">Special Price</span>
+                        </div>
+                    </div>
+                    <div class="offer-status-label">OFFER NOT YET FOR TODAY</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-info">
+                        <h4>Pattern Design</h4>
+                        <div class="price-container">
+                            <span class="price-red">Rs 2500</span>
+                            <span class="price-light-red">Special Price</span>
+                        </div>
+                    </div>
+                    <div class="offer-status-label">OFFER NOT YET FOR TODAY</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Padding so content isn't hidden behind nav -->
+        <div class="bottom-padding"></div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-target="home-tab">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </button>
+        <button class="nav-item" data-target="examples-tab">
+            <i class="fa-solid fa-image"></i>
+            <span>Examples</span>
+        </button>
+        <button class="nav-item" data-target="offers-tab">
+            <i class="fa-solid fa-tag"></i>
+            <span>Limited Time Offers</span>
+        </button>
+    </nav>
+
+    <!-- Image Modal (Lightbox) -->
+    <div id="image-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="full-image">
+        <div id="modal-caption"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
